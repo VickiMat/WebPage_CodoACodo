@@ -138,3 +138,57 @@ footer{
     }
     
   }
+
+
+  /* NOSOTROS */
+  .cont-nos{
+      display: flex;
+  }
+
+  .column-2{
+      display: grid;
+      grid-template-columns: 350px;
+      margin-bottom: 100px;
+  }
+
+.column-1{
+    background-color: rgb(197, 162, 218);
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif, Arial;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 50px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+.letra-logo{
+    font-family: 'Kalam', cursive, Arial;
+    font-size: 50px;
+    text-align: end;
+}
+
+.img-nos{
+    width: 250px;
+}
+.img-hov{
+    width: fit-content;
+    position: relative;
+}
+
+.info-art {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    width: 240px;
+    color: #FFF;
+    padding: 5px;
+    font-size: 25px;
+    text-align: center;
+   }
+
+   .img-hov:hover .info-art{
+       display: block; 
+   }
