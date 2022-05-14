@@ -233,3 +233,29 @@ footer{
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    }
 
+
+
+   #mensajeN{
+    color:red;
+    margin-left: 155px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+#mensajeA{
+    color:red;
+    margin-left: 155px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+#mensajeE{
+    color:red;
+    margin-left: 155px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+#mensajeM{
+    color:red;
+    margin-left: 155px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}

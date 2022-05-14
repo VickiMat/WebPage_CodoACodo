@@ -48,19 +48,73 @@
                     width="500" height="400" style="border:2;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             <div class="main-4">
-                <form>
+                <form name="contacto" onsubmit="return validar();">
                     <br>
-                    <label>Nombre:<br><input type="text" name="nombre"></label>
+                    <label for="nombre">Nombre:</label><br><input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre"><label id="mensajeN"></label>
                     <br><br>
-                    <label>Asunto:<br> <input type="text" name="asunto"></label>
+                    <label for="asunto">Asunto:</label><br> <input type="text" name="asunto" id="asunto" placeholder="Ingrese el motivo de consulta" ><label id="mensajeA"></label>
                     <br><br>
-                    <label>Correo electronico:<br> <input type="email" name="correo"></label>
+                    <label for="mail">Correo electronico:</label><br> <input type="email" name="correo" id="mail" placeholder="Ingrese su e-mail"><label id="mensajeE"></label>
                     <br><br>
-                    <label>Mensaje:<br><textarea name="textarea" cols="40" rows="10"></textarea></label>
+                    <label for="mensaje">Mensaje:</label><br><textarea name="textarea" id="mensaje" cols="40" rows="10" ></textarea><label id="mensajeM"></label>
                     <br><br>
-                    <label><input type="submit" name="enviar" class="btn-submit"></label>
+                    <label><input type="submit" value="Enviar" name="enviar" class="btn-submit"></label>
                     <br><br>
                 </form>
+
+                <script>
+                    function validar() 
+                    {
+                        nombre = document.getElementById("nombre").value;
+                        asunto = document.getElementById("asunto").value;
+                        email = document.getElementById("mail").value;
+                        mensaje = document.getElementById("mensaje").value;
+                        
+                        if(nombre == null || nombre.length == 0) 
+                        {
+                            document.getElementById('mensajeN').innerHTML = "Por favor ingrese un nombre";
+                            document.getElementById('nombre').focus();
+                        
+                            
+                            return false;
+                        }
+
+                        if(asunto == null || asunto.length == 0){
+                            document.getElementById('mensajeA').innerHTML = "El asunto es obligatorio";
+                            elemento2 = document.getElementById('asunto');
+                            elemento2.focus();
+
+                            return false;
+                        }
+
+                        if (email == null || email.length == 0){
+                            document.getElementById('mensajeE').innerHTML = "Por favor ingrese un e-mail" ;
+                            document.getElementById('mail').focus();
+
+                            return false; 
+                        }
+
+                        if (!(/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|ar)+$/.test(email))){
+                            document.getElementById('mensajeE').innerHTML = "Dirección de e-mail inválida" ;
+                            document.getElementById('mail').focus();
+
+                            return false;
+                        }
+
+                        if(mensaje== null || mensaje.length == 0){
+                            document.getElementById('mensajeM').innerHTML = "Por favor ingrese un mensaje";
+                            document.getElementById('mensaje').focus();
+
+                            return false;
+                        }
+
+
+                        return true; 
+                        
+                    
+                    }
+                
+                </script>
             </div>
         </div>
     </main>
