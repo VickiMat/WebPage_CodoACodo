@@ -17,6 +17,7 @@ body{
 #vela{
     width: 300px;
     border: 2px solid rgb(80, 60, 92);
+    border-radius: 15px;
 }
 
 .derecha{
@@ -26,6 +27,7 @@ body{
     width: 30%;
     margin: 10px;
     justify-content: space-evenly;
+    border-radius: 10px;
 }
 
 .izquierda{
@@ -58,6 +60,7 @@ h3{
     transition: all 1.5s ease;
     position: relative;
     border: 2px solid rgb(80, 60, 92);
+    border-radius: 10px;
 }
 
 .link-dir:hover{

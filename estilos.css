@@ -38,9 +38,11 @@ header{
 /*BODY*/
 
 h1{
-    font-size: 60px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
     text-align: center;
+    margin-top: 70px;
+    margin-bottom: 80px;
 }
 .container-m{
     display: grid;
@@ -192,3 +194,42 @@ footer{
    .img-hov:hover .info-art{
        display: block; 
    }
+
+
+
+   /* PRODUCTOS */
+   .container-prod{
+       display: grid;
+       grid-template-columns: 350px 350px 350px;
+       grid-template-rows: 350px 100px;
+       justify-items: center;
+       justify-content: space-evenly;
+   }
+
+
+   .img-prod{
+       height: 300px;
+       width: 300px;
+       border-radius: 10%;
+       border: solid 5px rgb(194, 150, 219);
+   }
+
+   .img-prod:hover{
+        border-radius:50%;
+        box-shadow: 0px 0px 15px 15px rgb(194, 150, 219);
+        transform:scale(1.4);
+        border: none;
+   }
+
+   .item-prod{
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       margin: 20px;
+   }
+
+   h3{
+       font-size: 20px;
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+
