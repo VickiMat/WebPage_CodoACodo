@@ -48,70 +48,58 @@
                     width="500" height="400" style="border:2;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             <div class="main-4">
-                <form name="contacto" onsubmit="return validar();">
+                <form name="contacto" onsubmit="return validar()">
                     <br>
-                    <label for="nombre">Nombre:</label><br><input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre"><label id="mensajeN"></label>
+                    <label for="nombre">Nombre:</label><br><input type="text" onblur="validarCampoRequerido('nombre','mensajeN')" name="nombre" id="nombre" placeholder="Ingrese su nombre"><label id="mensajeN"></label>
                     <br><br>
-                    <label for="asunto">Asunto:</label><br> <input type="text" name="asunto" id="asunto" placeholder="Ingrese el motivo de consulta" ><label id="mensajeA"></label>
+                    <label for="asunto">Asunto:</label><br> <input type="text" onblur="validarCampoRequerido('asunto','mensajeA')" name="asunto" id="asunto" placeholder="Ingrese el motivo de consulta" ><label id="mensajeA"></label>
                     <br><br>
-                    <label for="mail">Correo electronico:</label><br> <input type="email" name="correo" id="mail" placeholder="Ingrese su e-mail"><label id="mensajeE"></label>
+                    <label for="mail">Correo electronico:</label><br> <input type="email" onblur="validarMail('mail','mensajeE')" name="correo" id="mail" placeholder="Ingrese su e-mail"><label id="mensajeE"></label>
                     <br><br>
-                    <label for="mensaje">Mensaje:</label><br><textarea name="textarea" id="mensaje" cols="40" rows="10" ></textarea><label id="mensajeM"></label>
+                    <label for="mensaje">Mensaje:</label><br><textarea name="textarea" onblur="validarCampoRequerido('mensaje','mensajeM')" id="mensaje" cols="40" rows="10" ></textarea><label id="mensajeM"></label>
                     <br><br>
                     <label><input type="submit" value="Enviar" name="enviar" class="btn-submit"></label>
                     <br><br>
                 </form>
 
                 <script>
+                    function validarCampoRequerido(nombreCampo, mensajeError) {
+                        campo = document.getElementById(nombreCampo);
+
+                        if (campo.value == null || campo.value.length == 0){
+                            document.getElementById(mensajeError).innerHTML = "Este campo es requerido";
+                            return false;
+                        }
+                        document.getElementById(mensajeError).innerHTML = "";
+                        return true;
+                    }
+
+                    function validarMail(campoEmail,mensajeError){
+                        if (validarCampoRequerido(campoEmail,mensajeError)){
+                            email = document.getElementById(campoEmail);
+                            var validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                            if (!email.value.match(validRegex)){
+                                document.getElementById(mensajeError).innerHTML = "No es un formato válido de e-mail";
+                                return false;
+                            } else{
+                                document.getElementById(mensajeError).innerHTML = "";
+                                return true;
+                            }
+                        }
+                    }
+
                     function validar() 
-                    {
-                        nombre = document.getElementById("nombre").value;
-                        asunto = document.getElementById("asunto").value;
-                        email = document.getElementById("mail").value;
-                        mensaje = document.getElementById("mensaje").value;
-                        
-                        if(nombre == null || nombre.length == 0) 
-                        {
-                            document.getElementById('mensajeN').innerHTML = "Por favor ingrese un nombre";
-                            document.getElementById('nombre').focus();
-                        
-                            
-                            return false;
-                        }
+                    {                 
+                        nombreValido = validarCampoRequerido("nombre", "mensajeN");
+                        asuntoValido = validarCampoRequerido("asunto", "mensajeA");
+                        emailValido = validarMail("mail","mensajeE");
+                        mensajeValido = validarCampoRequerido("mensaje", "mensajeM");
 
-                        if(asunto == null || asunto.length == 0){
-                            document.getElementById('mensajeA').innerHTML = "El asunto es obligatorio";
-                            elemento2 = document.getElementById('asunto');
-                            elemento2.focus();
-
-                            return false;
-                        }
-
-                        if (email == null || email.length == 0){
-                            document.getElementById('mensajeE').innerHTML = "Por favor ingrese un e-mail" ;
-                            document.getElementById('mail').focus();
-
+                        if(nombreValido && asuntoValido && emailValido && mensajeValido) {
+                    
+                        } else { 
                             return false; 
                         }
-
-                        if (!(/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|ar)+$/.test(email))){
-                            document.getElementById('mensajeE').innerHTML = "Dirección de e-mail inválida" ;
-                            document.getElementById('mail').focus();
-
-                            return false;
-                        }
-
-                        if(mensaje== null || mensaje.length == 0){
-                            document.getElementById('mensajeM').innerHTML = "Por favor ingrese un mensaje";
-                            document.getElementById('mensaje').focus();
-
-                            return false;
-                        }
-
-
-                        return true; 
-                        
-                    
                     }
                 
                 </script>
