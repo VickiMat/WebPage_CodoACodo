@@ -16,15 +16,18 @@ body{
 
 #vela{
     width: 300px;
+    border: 2px solid rgb(80, 60, 92);
+    border-radius: 15px;
 }
 
 .derecha{
-    background-color: lavenderblush;
+    background-color: rgb(210, 190, 221);
     display: grid;
     align-content: space-evenly;
     width: 30%;
     margin: 10px;
     justify-content: space-evenly;
+    border-radius: 10px;
 }
 
 .izquierda{
@@ -51,13 +54,34 @@ h3{
 .link-dir{
     height: 50px;
     width: 250px;
-    background-color: lavenderblush;
+    background-color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: large;
+    font-size: 20px;
+    transition: all 1.5s ease;
+    position: relative;
+    border: 2px solid rgb(80, 60, 92);
+    border-radius: 10px;
 }
 
 .link-dir:hover{
     background-color: white;
+    background: rgb(80, 60, 92);
+    color: #fff !important;
+}
+
+.icons{
+    color: rgb(80, 60, 92);
+    text-align: center;
+    font-size: 40px;
+}
+.fa-instagram-square:hover{
+   font-size: 45px;
+}
+.fa-facebook-square:hover{
+    font-size: 45px;
+}
+.fa-whatsapp-square:hover{
+    font-size: 45px;
 }
 
 footer{
@@ -69,9 +93,37 @@ footer{
 @media (max-width:320px){
     .container{
         flex-wrap: wrap;
+       
     }
     .link-dir{
         width: 200px;
+        font-size: 15px;
+        height: fit-content;
+        background-color: white;
+    }
+    h3{
+        text-align: center;
+        font-size: 20px;
+    }
+    header{
+        display: none;
+    }
+    h1{
+        font-size: 40px;
+    }
+    #logo{
+        width: 50px;
+    }
+    .izquierda{
+        justify-items: baseline;
+    }
+    #vela{
+        width: 150px;
+        align-items: center;
+    }
+    .derecha{
+        margin-top: 10px;
+        background-color: white;
     }
   }
 
@@ -80,12 +132,24 @@ footer{
         flex-wrap: wrap;
     }
     .derecha{
-        margin-top: 80px;
+        margin-top: 10px;
         width: 100%;
         display: grid;
+        background-color: white;
+    }
+    header{
+        display: none;
+    }
+    #vela{
+        width: 200px;
+    }
+    .link-dir{
+        font-size: 15px;
     }
     
   }
+
+
 
 
   
