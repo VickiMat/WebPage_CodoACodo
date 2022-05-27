@@ -1,3 +1,0 @@
--Validacion formulario con javascript
--Creacion pagina productos
--poner 1 animacion (puede ser en pagina productos)
